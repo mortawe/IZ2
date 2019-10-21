@@ -14,13 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70ac0295-b144-45a5-8ac0-f72496431d01" name="Default Changelist" comment="tests added">
-      <change afterPath="$PROJECT_DIR$/example/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_valgrind.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_valgrind.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +37,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/example" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/example" />
     </key>
@@ -65,7 +63,7 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IZ2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="IZ2" TARGET_NAME="IZ2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="IZ2" RUN_TARGET_NAME="IZ2">
+    <configuration name="IZ2" type="CMakeRunConfiguration" factoryName="Application" nameIsGenerated="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="IZ2" TARGET_NAME="IZ2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="IZ2" RUN_TARGET_NAME="IZ2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
