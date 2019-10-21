@@ -21,7 +21,7 @@ TEST(test_seq, test_fill_array_seq){
 }
 TEST(test_seq, test_sequential){
     int status = sequential();
-    ASSERT_EQ(status, SUCCESS);
+    ASSERT_EQ(status, 0);
 }
 
 TEST(test_par, test_fill_array_parallel_5_threads){
@@ -63,7 +63,7 @@ TEST(test_par, test_fill_array_parallel_50_threads){
 
 TEST(test_par, test_parallel){
     int status = parallel();
-    ASSERT_EQ(status, SUCCESS);
+    ASSERT_EQ(status, 0);
 }
 TEST(test_par, test_thread_routine){
     int * a = (int *) malloc(100 * sizeof(int));

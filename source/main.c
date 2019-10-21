@@ -13,7 +13,7 @@ int * fill_array_seq(int * a, int n){
     return a;
 }
 
-void sequential(){
+int sequential(){
     int * a = (int *) malloc(memory_size);
     if (a == NULL) {
         exit(ERROR_MALLOC);
@@ -21,6 +21,7 @@ void sequential(){
     size_t array_size = memory_size / sizeof(int);
     fill_array_seq(a, array_size);
     free(a);
+    return SUCCESS;
 }
 
 
@@ -67,8 +68,9 @@ int * fill_array_parallel(int * a, int array_size, int threads_num){
         free(data[i]);
     }
     free(data);
+    return a;
 }
-void parallel(){
+int parallel(){
     size_t array_size = memory_size / sizeof(int);
     int status;
     int * a = (int *) malloc(memory_size);
@@ -77,5 +79,6 @@ void parallel(){
     }
     fill_array_parallel(a, array_size, 10);
     free(a);
+    return SUCCESS;
 }
 
