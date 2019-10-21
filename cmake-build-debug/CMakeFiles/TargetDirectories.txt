@@ -1,4 +1,0 @@
-/home/master/park.mail/IZ2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/master/park.mail/IZ2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/master/park.mail/IZ2/cmake-build-debug/CMakeFiles/IZ2.dir
-/home/master/park.mail/IZ2/cmake-build-debug/CMakeFiles/unit_test.dir

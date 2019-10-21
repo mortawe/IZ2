@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/IZ2.dir/source/main.c.o  -o IZ2 -lpthread libIZ2_lib.a 

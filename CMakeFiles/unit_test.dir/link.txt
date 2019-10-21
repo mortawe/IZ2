@@ -1,1 +1,0 @@
-/usr/bin/c++   -pthread   CMakeFiles/unit_test.dir/test/unit_test.cpp.o  -o unit_test /usr/lib/libgtest.a libIZ2_lib.a 

@@ -1,6 +1,0 @@
-/home/master/park.mail/IZ2/CMakeFiles/rebuild_cache.dir
-/home/master/park.mail/IZ2/CMakeFiles/test.dir
-/home/master/park.mail/IZ2/CMakeFiles/unit_test.dir
-/home/master/park.mail/IZ2/CMakeFiles/edit_cache.dir
-/home/master/park.mail/IZ2/CMakeFiles/IZ2_lib.dir
-/home/master/park.mail/IZ2/CMakeFiles/IZ2.dir
