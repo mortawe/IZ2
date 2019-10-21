@@ -3,6 +3,6 @@ language: c
 
 
 script:
-    sudo apt-get install cmake libgtest-dev
-    sudo cmake CMakeLists.txt
-    sudo make
+    - sudo apt-get install cmake libgtest-dev
+    - sudo cmake CMakeLists.txt
+    - sudo make
