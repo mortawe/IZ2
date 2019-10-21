@@ -1,38 +1,7 @@
-sudo: true
+
 language: c
 
-os:
-  - linux
-  - osx
-
-compiler:
-  - gcc
-  - clang
-
-env:
-  # список переменных окружения, влияющих на матрицу сборки:
-  - TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
-  - TARGET_CPU=amd64 BUILD_CONFIGURATION=Release
-  - TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-  - TARGET_CPU=x86 BUILD_CONFIGURATION=Release
-
-matrix:
-  exclude:
-    - os: osx
-      compiler: gcc
-
-    - os:  osx
-      env: TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-
-    - os:  osx
-      env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
-
-install:
-  - source ci/install-$TRAVIS_OS_NAME.sh
 
 script:
-  - mkdir build
-  - cd build
-  - cmake .. && make
-  - ctest --output-on-failure
-  - source ../ci/check-$TRAVIS_OS_NAME.sh
+  - cmake CMakeLists.txt
+  - make
