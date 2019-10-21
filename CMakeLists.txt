@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION  3.5.1)
 project(IZ2)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(LIB_SOURCE_FILES source/main.c)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
