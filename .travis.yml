@@ -18,13 +18,14 @@ before_script:
 script:
   - ./unit_test
   - ./IZ2
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./IZ2
 branches:
   only:
     - master
     - dev
 notifications:
-  recipients:
-    - test@gmail.com
+  recipients:valgrind
+    - mortawe@gmail.com
   email:
     on_success: never
     on_failure: change
