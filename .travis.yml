@@ -84,7 +84,7 @@ script:
 branches:
   only:
     - master
-    - develop
+    - dev
 notifications:
   recipients:
     - mkhan3189@gmail.com
