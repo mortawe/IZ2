@@ -12,6 +12,19 @@ add_library(IZ2_lib STATIC ${LIB_SOURCE_FILES})
 add_executable(IZ2 source/main.c)
 add_executable(unit_test test/unit_test.cpp)
 
+project(googletest-download NONE)
+
+include(ExternalProject)
+ExternalProject_Add(googletest
+        GIT_REPOSITORY    https://github.com/google/googletest.git
+        GIT_TAG           master
+        SOURCE_DIR        "${CMAKE_CURRENT_BINARY_DIR}/googletest-src"
+        BINARY_DIR        "${CMAKE_CURRENT_BINARY_DIR}/googletest-build"
+        CONFIGURE_COMMAND ""
+        BUILD_COMMAND     ""
+        INSTALL_COMMAND   ""
+        TEST_COMMAND      ""
+        )
 find_package(GTest REQUIRED)
 include_directories(include)
 include_directories(${GTEST_INCLUDE_DIRS})
