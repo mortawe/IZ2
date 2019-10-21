@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION  3.12.4)
+cmake_minimum_required(VERSION  3.5.1)
 project(IZ2)
 
 set(CMAKE_C_STANDARD 11)
