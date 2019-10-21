@@ -2,6 +2,6 @@ language: c
 
 
 script:
-    - cmake
+    - cmake CMakeLists.txt
     - make
     
