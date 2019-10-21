@@ -1,9 +1,7 @@
 sudo: true
 language: c
 
-install:
-    - source ci/install-$TRAVIS_OS_NAME.sh
-    
+
 script:
     - cmake CMakeLists.txt
     -  make
