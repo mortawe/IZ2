@@ -28,7 +28,7 @@ int sequential(){
 void * thread_routine(void *  arg){
     pthr_data * data = (pthr_data*) arg;
     int count = 0;
-    //printf("thread [%d,%d)\n", a->from, a->to);
+    //printf("thread [%d,%d)\n", data->from, data->to);
     for (int i = data->from; i < data->to; i++) {
         *(data->a + i) = count;
         count = (count + 1) % 4;
