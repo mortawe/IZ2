@@ -13,10 +13,11 @@ before_install:
   - which valgrind
   - cd "${TRAVIS_BUILD_DIR}"
 before_script:
-
-script:
   - cmake CMakeLists.txt
   - make
+script:
+  - ./unit_test
+  - ./IZ2
 branches:
   only:
     - master
