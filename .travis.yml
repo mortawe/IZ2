@@ -15,17 +15,16 @@ before_install:
 before_script:
   - cmake CMakeLists.txt
   - make
-script:
   - ./unit_test
   - ./IZ2
-  - "valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./IZ2"
+script:   "valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./IZ2"
 branches:
   only:
     - master
     - dev
 notifications:
-  recipients:valgrind
-    - mortawe@gmail.com
+  recipients:
+    - test@gmail.com
   email:
     on_success: never
     on_failure: change
