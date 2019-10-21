@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/master/park.mail/IZ2/test/unit_test.cpp
+gtest/gtest.h
+-
+main.h
+/home/master/park.mail/IZ2/test/main.h
+
+include/main.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+pthread.h
+-
+

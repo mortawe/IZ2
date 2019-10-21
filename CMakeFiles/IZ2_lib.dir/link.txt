@@ -1,0 +1,2 @@
+/usr/bin/ar qc libIZ2_lib.a  CMakeFiles/IZ2_lib.dir/source/main.c.o
+/usr/bin/ranlib libIZ2_lib.a
