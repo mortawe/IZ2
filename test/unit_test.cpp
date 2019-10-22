@@ -83,7 +83,6 @@ TEST(test_par, test_thread_routine){
     if (status != 0) {
             exit(ERROR_CREATE_PTHREAD);
     }
-    int count = 0;
     status = pthread_join(thread, NULL);
     free(a);
     free(data);
