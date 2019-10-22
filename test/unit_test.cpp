@@ -4,7 +4,8 @@
 
 #include <gtest/gtest.h>
 extern "C" {
-#include "main.h"
+#include "sequential.h"
+#include "parallel.h"
 };
 
 TEST(test_seq, test_fill_array_seq){
@@ -20,7 +21,8 @@ TEST(test_seq, test_fill_array_seq){
     }
 }
 TEST(test_seq, test_sequential){
-    int status = sequential();
+    const size_t memory_size = 100 * 1024 * 1024;
+    int status = sequential(memory_size);
     ASSERT_EQ(status, 0);
 }
 
@@ -62,7 +64,8 @@ TEST(test_par, test_fill_array_parallel_50_threads){
 }
 
 TEST(test_par, test_parallel){
-    int status = parallel();
+    const size_t memory_size = 100 * 1024 * 1024;
+    int status = parallel(memory_size);
     ASSERT_EQ(status, 0);
 }
 TEST(test_par, test_thread_routine){

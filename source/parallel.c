@@ -1,39 +1,7 @@
 //
-// Created by master on 21.10.2019.
+// Created by master on 22.10.2019.
 //
-
-#include "../include/main.h"
-
-int * fill_array_seq(int * a, int n){
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        a[i] = count;
-        count = (count + 1) % 4;
-    }
-    return a;
-}
-
-int sequential(){
-    int * a = (int *) malloc(memory_size);
-    if (a == NULL) {
-        exit(ERROR_MALLOC);
-    }
-    size_t array_size = memory_size / sizeof(int);
-    fill_array_seq(a, array_size);
-    free(a);
-    return SUCCESS;
-}
-
-
-void * thread_routine(void *  arg){
-    pthr_data * data = (pthr_data*) arg;
-    int count = 0;
-    //printf("thread [%d,%d)\n", data->from, data->to);
-    for (int i = data->from; i < data->to; i++) {
-        *(data->a + i) = count;
-        count = (count + 1) % 4;
-    }
-}
+#include "parallel.h"
 int * fill_array_parallel(int * a, int array_size, int threads_num){
     int status;
     pthread_t threads[threads_num];
@@ -70,7 +38,7 @@ int * fill_array_parallel(int * a, int array_size, int threads_num){
     free(data);
     return a;
 }
-int parallel(){
+int parallel(size_t memory_size){
     size_t array_size = memory_size / sizeof(int);
     int status;
     int * a = (int *) malloc(memory_size);
@@ -80,5 +48,14 @@ int parallel(){
     fill_array_parallel(a, array_size, 10);
     free(a);
     return SUCCESS;
+}
+void * thread_routine(void *  arg){
+    pthr_data * data = (pthr_data*) arg;
+    int count = 0;
+    //printf("thread [%d,%d)\n", data->from, data->to);
+    for (int i = data->from; i < data->to; i++) {
+        *(data->a + i) = count;
+        count = (count + 1) % 4;
+    }
 }
 
