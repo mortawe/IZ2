@@ -1,0 +1,61 @@
+//
+// Created by master on 22.10.2019.
+//
+#include "parallel.h"
+int * fill_array_parallel(int * a, int array_size, int threads_num){
+    int status;
+    pthread_t threads[threads_num];
+    pthr_data **data = malloc(sizeof(pthr_data * ) * threads_num);
+    if (data == NULL) {
+        exit(ERROR_MALLOC);
+    }
+    for (int i = 0; i < threads_num ; i++) {
+        data[i] = malloc(sizeof(pthr_data));
+        if (data[i] == NULL) {
+            exit(ERROR_MALLOC);
+        }
+        data[i]->from = i * array_size / threads_num;
+        data[i]->to = (i+1) * array_size / threads_num;
+        data[i]->a = a;
+        status = pthread_create(
+                &threads[i], NULL, thread_routine, data[i]
+        );
+        if (status != 0) {
+            exit(ERROR_CREATE_PTHREAD);
+        }
+
+    }
+
+    for (int i = 0; i < threads_num; i++){
+        status = pthread_join(threads[i], NULL);
+        if (status != 0) {
+            exit(ERROR_JOIN_PTHREAD);
+        }
+    }
+    for (int i = 0; i < threads_num; i++){
+        free(data[i]);
+    }
+    free(data);
+    return a;
+}
+int parallel(size_t memory_size){
+    size_t array_size = memory_size / sizeof(int);
+    int status;
+    int * a = (int *) malloc(memory_size);
+    if (a == NULL) {
+        exit(ERROR_MALLOC);
+    }
+    fill_array_parallel(a, array_size, 10);
+    free(a);
+    return SUCCESS;
+}
+void * thread_routine(void *  arg){
+    pthr_data * data = (pthr_data*) arg;
+    int count = 0;
+    //printf("thread [%d,%d)\n", data->from, data->to);
+    for (int i = data->from; i < data->to; i++) {
+        *(data->a + i) = count;
+        count = (count + 1) % 4;
+    }
+}
+
