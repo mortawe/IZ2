@@ -13,16 +13,22 @@
 
 int main(){
     const size_t memory_size = 100 * 1024 * 1024;
-    clock_t begin = clock();
-    parallel(memory_size);
-    clock_t end = clock();
-    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("parallel : %f \n", time_spent);
+    struct timespec start, finish;
+    double elapsed;
 
-    begin = clock();
+    clock_gettime(CLOCK_MONOTONIC, &start);
+    parallel(memory_size);
+    clock_gettime(CLOCK_MONOTONIC, &finish);
+
+    elapsed = (finish.tv_sec - start.tv_sec);
+    elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+    printf("parallel : %f \n", elapsed);
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
     sequential(memory_size);
-    end = clock();
-    time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("sequential : %f \n ", time_spent);
+    clock_gettime(CLOCK_MONOTONIC, &finish);
+    elapsed = (finish.tv_sec - start.tv_sec);
+    elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+    printf("sequential : %f \n ", elapsed);
     return 0;
 }
