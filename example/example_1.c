@@ -8,8 +8,8 @@
 массив размером 100 Мб и инициализирует его значениями по 
 следующему шаблону: 0, 1, 2, 3, 0, 1, 2, 3, … */
 
-#include "../include/sequential.h"
-#include "../include/parallel.h"
+#include "sequential.h"
+#include "parallel.h"
 
 int main(){
     const size_t memory_size = 100 * 1024 * 1024;
