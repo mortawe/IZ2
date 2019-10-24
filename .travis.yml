@@ -22,11 +22,5 @@ branches:
   only:
     - master
     - dev
-notifications:
-  recipients:
-    - test@gmail.com
-  email:
-    on_success: never
-    on_failure: change
 rvm:
   - 9.00
