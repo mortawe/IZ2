@@ -3,7 +3,7 @@
 //
 #include <unistd.h>
 #include "fill_array.h"
-#include <pthread.h>
+
 
 int threads_creation(int * ref_array, int * array_to_fill, char * used_index, int array_size){
     int step = array_size >> 1;
@@ -57,6 +57,7 @@ void * thread_routine(void *  arg){
         data->used[i] = 1;
         *(data->a+i) = *(data->ref+i);
     }
+    return NULL;
 }
 int  fill_array(int * ref_array, int * array_to_fill, size_t array_size) {
     if (ref_array == NULL || array_to_fill == NULL) return FAILURE;

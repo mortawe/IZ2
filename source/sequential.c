@@ -1,7 +1,6 @@
 //
 // Created by master on 21.10.2019.
 //
-#include <string.h>
 #include "fill_array.h"
 int fill_array(int * ref_array, int * array_to_fill, size_t array_size) {
     if (ref_array == NULL || array_to_fill == NULL) return FAILURE;
