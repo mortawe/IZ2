@@ -2,7 +2,6 @@
 // Created by master on 25.10.2019.
 //
 
-#include <unistd.h>
 #include "fill_array.h"
 typedef struct {
     int s;

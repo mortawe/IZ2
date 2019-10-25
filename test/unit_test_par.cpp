@@ -81,7 +81,6 @@ TEST(test_par, test_wrong_input){
     int *b = NULL;
     ASSERT_EQ(fill_array(a,b, 10), FAILURE);
 }
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

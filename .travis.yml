@@ -23,4 +23,5 @@ script:
   - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex2
   - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex
   - gcovr -r ../
+  - gcovr -b ../
 

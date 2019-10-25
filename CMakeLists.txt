@@ -36,7 +36,6 @@ target_link_libraries(unit_test_seq IZ2_lib_STATIC_SEQ)
 add_test(NAME test1 COMMAND unit_test_par)
 add_test(NAME test2 COMMAND unit_test_seq)
 add_executable(main example/example_with_input.c)
-#target_link_libraries(main IZ2_lib_STATIC_SEQ)
 target_link_libraries(main IZ2_lib_SHARED_PAR)
 add_executable(ex example/example_with_both_libs.cpp)
 
