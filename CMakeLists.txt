@@ -6,8 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(LIB_SOURCE_FILES_STATIC_SEQ source/sequential.c)
 set(LIB_SOURCE_FILES_SHARED_PAR source/parallel.c)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-set(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage -fPIC")
-set(GCC_COVERAGE_LINK_FLAGS "-lgcov")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 
 
 enable_testing()
