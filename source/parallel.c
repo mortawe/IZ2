@@ -1,61 +1,67 @@
 //
 // Created by master on 22.10.2019.
 //
-#include "parallel.h"
-int * fill_array_parallel(int * a, int array_size, int threads_num){
-    int status;
-    pthread_t threads[threads_num];
-    pthr_data **data = malloc(sizeof(pthr_data * ) * threads_num);
+#include <unistd.h>
+#include "fill_array.h"
+#include <pthread.h>
+
+int threads_creation(int * ref_array, int * array_to_fill, char * used_index, int array_size){
+    int step = array_size >> 1;
+    int threads_num = 0, max_threads_num = sysconf(_SC_NPROCESSORS_ONLN)*128;
+    pthr_data ** data =  (pthr_data **) malloc(sizeof( pthr_data *) * max_threads_num);
     if (data == NULL) {
-        exit(ERROR_MALLOC);
+        return FAILURE;
     }
-    for (int i = 0; i < threads_num ; i++) {
-        data[i] = malloc(sizeof(pthr_data));
-        if (data[i] == NULL) {
-            exit(ERROR_MALLOC);
+    pthread_t thread[max_threads_num];
+    while (step > 1 && threads_num < max_threads_num){
+        int is_array_full = 1;
+        for (int i = 0; i < array_size; i+= step) {
+            if (!used_index[i]){
+                data[threads_num] = (pthr_data * ) malloc(sizeof(pthr_data));
+                if (data[threads_num] == NULL) {
+                    break;
+                }
+                data[threads_num]->from = i;
+                data[threads_num]->a = array_to_fill;
+                data[threads_num]->ref = ref_array;
+                data[threads_num]->to = array_size;
+                data[threads_num]->used = used_index;
+                if (pthread_create(&thread[threads_num], NULL, thread_routine, data[threads_num]) == 0) {
+                    threads_num++;
+                    is_array_full = 0;
+                } else {
+                    break;
+                }
+            }
         }
-        data[i]->from = i * array_size / threads_num;
-        data[i]->to = (i+1) * array_size / threads_num;
-        data[i]->a = a;
-        status = pthread_create(
-                &threads[i], NULL, thread_routine, data[i]
-        );
-        if (status != 0) {
-            exit(ERROR_CREATE_PTHREAD);
-        }
-
+        if (is_array_full == 1) break;
+        step = step >> 1;
     }
-
     for (int i = 0; i < threads_num; i++){
-        status = pthread_join(threads[i], NULL);
-        if (status != 0) {
-            exit(ERROR_JOIN_PTHREAD);
-        }
-    }
-    for (int i = 0; i < threads_num; i++){
+        pthread_join(thread[i], NULL);
         free(data[i]);
     }
     free(data);
-    return a;
-}
-int parallel(size_t memory_size){
-    size_t array_size = memory_size / sizeof(int);
-    int status;
-    int * a = (int *) malloc(memory_size);
-    if (a == NULL) {
-        exit(ERROR_MALLOC);
-    }
-    fill_array_parallel(a, array_size, 10);
-    free(a);
-    return SUCCESS;
-}
-void * thread_routine(void *  arg){
-    pthr_data * data = (pthr_data*) arg;
-    int count = 0;
-    //printf("thread [%d,%d)\n", data->from, data->to);
-    for (int i = data->from; i < data->to; i++) {
-        *(data->a + i) = count;
-        count = (count + 1) % 4;
-    }
+    return threads_num;
 }
 
+void * thread_routine(void *  arg){
+    pthr_data * data = (pthr_data*) arg;
+    if (data == NULL){
+        return NULL;
+    }
+    for (int i = data->from; i < data->to; i++) {
+        if (data->used[i]) {
+            break;
+        }
+        data->used[i] = 1;
+        *(data->a+i) = *(data->ref+i);
+    }
+}
+int  fill_array(int * ref_array, int * array_to_fill, size_t array_size) {
+    if (ref_array == NULL || array_to_fill == NULL) return FAILURE;
+    char * used_index = (char *) calloc(sizeof(char), array_size);
+    threads_creation(ref_array, array_to_fill, used_index, array_size);
+    free(used_index);
+    return SUCCESS;
+}

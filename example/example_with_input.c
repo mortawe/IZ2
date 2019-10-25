@@ -1,23 +1,30 @@
 //
-// Created by master on 21.10.2019.
+// Created by master on 25.10.2019.
 //
 
-
 #include "fill_array.h"
+typedef struct {
+    int s;
+    int p;
+} flags;
 
 
 int main() {
-    srand(clock());
-    const size_t memory_size = 100 * 1024 * 1024;
-    size_t array_size = memory_size / sizeof(int);
-    int * const ref_array = calloc(array_size, sizeof(int));
-    for (int i = 0; i < array_size; i++){
-        ref_array[i] = rand() % sizeof(int) + 1;
+
+    printf("Введите размер массива: ");
+    int array_size;
+    scanf("%d", &array_size);
+    int * ref_array = malloc(array_size * sizeof(int));
+
+    printf("\n Введите значения %d элементов массива: ", array_size);
+    for (int i = 0; i < array_size; i++) {
+        scanf("%d", &ref_array[i]);
     }
 
     struct timespec start, finish;
     double elapsed;
-    int * array_to_fill = malloc(memory_size);
+    int * array_to_fill = malloc(array_size * sizeof(int));
+
     clock_gettime(CLOCK_MONOTONIC, &start);
     int status = fill_array(ref_array, array_to_fill, array_size);
     clock_gettime(CLOCK_MONOTONIC, &finish);
@@ -28,7 +35,9 @@ int main() {
     } else {
         printf("error");
     }
+    free( array_to_fill);
     free(ref_array);
-    free(array_to_fill);
+
+
     return 0;
 }
