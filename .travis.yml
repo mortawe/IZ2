@@ -13,10 +13,14 @@ before_install:
   - sudo apt-get install cppcheck
   - which valgrind
   - cd "${TRAVIS_BUILD_DIR}"
-before_script:
+  - sudo apt install gcovr
+script:
   - cmake CMakeLists.txt
   - make
   - cppcheck --force ../
-  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./unit_test
-  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./IZ2
+  - make test
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex1
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex2
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex
+  - gcovr -r ../
 
