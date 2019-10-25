@@ -3,11 +3,6 @@
 //
 
 #include "fill_array.h"
-typedef struct {
-    int s;
-    int p;
-} flags;
-
 
 int main() {
 
