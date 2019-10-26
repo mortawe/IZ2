@@ -5,17 +5,18 @@
 #include "fill_array.h"
 
 
-int threads_creation(int * ref_array, int * array_to_fill, char * used_index, int array_size){
+int threads_creation(int * ref_array, int * array_to_fill, char * used_index, size_t array_size){
     int step = array_size >> 1;
     int threads_num = 0, max_threads_num = sysconf(_SC_NPROCESSORS_ONLN)*128;
     pthr_data ** data =  (pthr_data **) malloc(sizeof( pthr_data *) * max_threads_num);
-    if (data == NULL) {
+    if (data == NULL || ref_array == NULL || array_to_fill == NULL) {
+        free(data);
         return FAILURE;
     }
     pthread_t thread[max_threads_num];
     while (step > 1 && threads_num < max_threads_num){
         int is_array_full = 1;
-        for (int i = 0; i < array_size; i+= step) {
+        for (size_t i = 0; i < array_size; i+= step) {
             if (!used_index[i]){
                 data[threads_num] = (pthr_data * ) malloc(sizeof(pthr_data));
                 if (data[threads_num] == NULL) {
@@ -50,7 +51,7 @@ void * thread_routine(void *  arg){
     if (data == NULL){
         return NULL;
     }
-    for (int i = data->from; i < data->to; i++) {
+    for (size_t i = data->from; i < data->to; i++) {
         if (data->used[i]) {
             break;
         }

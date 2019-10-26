@@ -14,7 +14,6 @@ int main() {
     for (int i = 0; i < array_size; i++){
         ref_array[i] = rand() % sizeof(int) + 1;
     }
-
     struct timespec start, finish;
     double elapsed;
     int * array_to_fill = malloc(memory_size);

@@ -1,5 +1,6 @@
 language: c
-
+env:
+  - CODECOV_TOKEN="09281687-605f-4f52-a652-7d4c4f3f05ca"
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libgtest-dev valgrind cmake
@@ -22,5 +23,7 @@ script:
   - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex1
   - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex2
   - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex
-  - gcovr -r ../
+  - gcovr -r ../ --html --html-details -o gcov/code_coverage_report.html
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
