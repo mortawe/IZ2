@@ -12,8 +12,8 @@ typedef struct{
     int * a; //array_to_fill
     int * ref; //ref array
     char * used;
-    int from; //start filling index
-    int  to; //worst case end position
+    size_t from; //start filling index
+    size_t  to; //worst case end position
 
 } pthr_data;
 void * thread_routine(void * arg);

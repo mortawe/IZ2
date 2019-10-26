@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2019-10-26 11:10:13</td>
+            <td class="headerValue">2019-10-26 13:16:40</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">5</td>
@@ -330,28 +330,28 @@
     <tr>
     <td align="right" class="lineno"><pre>5</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>12</pre></td>
     <td align="left" class="src coveredLine"><pre>int fill_array(int * ref_array, int * array_to_fill, size_t array_size) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>6</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 5 times">&check;</span><span class="takenBranch" title="Branch 1 taken 1 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span><span class="takenBranch" title="Branch 3 taken 5 times">&check;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 9 times">&check;</span><span class="takenBranch" title="Branch 1 taken 3 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span><span class="takenBranch" title="Branch 3 taken 9 times">&check;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>12</pre></td>
     <td align="left" class="src coveredLine"><pre>    if (ref_array == NULL || array_to_fill == NULL) return FAILURE;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>7</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 131072000 times">&check;</span><span class="takenBranch" title="Branch 1 taken 5 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>131072005</pre></td>
-    <td align="left" class="src coveredLine"><pre>    for (int i = 0; i &lt; array_size; i++) {</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 235929600 times">&check;</span><span class="takenBranch" title="Branch 1 taken 9 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>235929609</pre></td>
+    <td align="left" class="src coveredLine"><pre>    for (size_t i = 0; i &lt; array_size; i++) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>8</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>131072000</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>235929600</pre></td>
     <td align="left" class="src coveredLine"><pre>        array_to_fill[i] = ref_array[i];</pre></td>
     </tr>
 
@@ -365,7 +365,7 @@
     <tr>
     <td align="right" class="lineno"><pre>10</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
     <td align="left" class="src coveredLine"><pre>    return SUCCESS;</pre></td>
     </tr>
 

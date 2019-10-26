@@ -11,7 +11,7 @@ int main() {
     const size_t memory_size = 100 * 1024 * 1024;
     size_t array_size = memory_size / sizeof(int);
     int * const ref_array = calloc(array_size, sizeof(int));
-    for (int i = 0; i < array_size; i++){
+    for (size_t i = 0; i < array_size; i++){
         ref_array[i] = rand() % sizeof(int) + 1;
     }
     struct timespec start, finish;

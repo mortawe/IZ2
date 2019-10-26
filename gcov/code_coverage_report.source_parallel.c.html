@@ -269,13 +269,13 @@
             <td class="headerValue">source/parallel.c</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">43</td>
-            <td class="headerTableEntry">46</td>
-            <td class="headerTableEntry" style="background-color:LightGreen">93.5 %</td>
+            <td class="headerTableEntry">44</td>
+            <td class="headerTableEntry">47</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">93.6 %</td>
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2019-10-26 11:10:13</td>
+            <td class="headerValue">2019-10-26 13:16:40</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">24</td>
@@ -351,35 +351,35 @@
     <tr>
     <td align="right" class="lineno"><pre>8</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>int threads_creation(int * ref_array, int * array_to_fill, char * used_index, size_t array_size){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>9</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>    int step = array_size &gt;&gt; 1;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>10</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>    int threads_num = 0, max_threads_num = sysconf(_SC_NPROCESSORS_ONLN)*128;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>11</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>    pthr_data ** data =  (pthr_data **) malloc(sizeof( pthr_data *) * max_threads_num);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>12</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 8 times">&check;</span><span class="notTakenBranch" title="Branch 1 not taken">&cross;</span><span class="takenBranch" title="Branch 2 taken 6 times">&check;</span><span class="takenBranch" title="Branch 3 taken 2 times">&check;</span><br/><span class="notTakenBranch" title="Branch 4 not taken">&cross;</span><span class="takenBranch" title="Branch 5 taken 6 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 11 times">&check;</span><span class="notTakenBranch" title="Branch 1 not taken">&cross;</span><span class="takenBranch" title="Branch 2 taken 9 times">&check;</span><span class="takenBranch" title="Branch 3 taken 2 times">&check;</span><br/><span class="notTakenBranch" title="Branch 4 not taken">&cross;</span><span class="takenBranch" title="Branch 5 taken 9 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>    if (data == NULL || ref_array == NULL || array_to_fill == NULL) {</pre></td>
     </tr>
 
@@ -387,389 +387,396 @@
     <td align="right" class="lineno"><pre>13</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount coveredLine"><pre>2</pre></td>
-    <td align="left" class="src coveredLine"><pre>        return FAILURE;</pre></td>
+    <td align="left" class="src coveredLine"><pre>        free(data);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>14</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="left" class="src coveredLine"><pre>        return FAILURE;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>15</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>15</pre></td>
+    <td align="right" class="lineno"><pre>16</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
     <td align="left" class="src coveredLine"><pre>    pthread_t thread[max_threads_num];</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>16</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 92 times">&check;</span><span class="notTakenBranch" title="Branch 1 not taken">&cross;</span><span class="takenBranch" title="Branch 2 taken 92 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>98</pre></td>
+    <td align="right" class="lineno"><pre>17</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 127 times">&check;</span><span class="notTakenBranch" title="Branch 1 not taken">&cross;</span><span class="takenBranch" title="Branch 2 taken 127 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>136</pre></td>
     <td align="left" class="src coveredLine"><pre>    while (step &gt; 1 &amp;&amp; threads_num &lt; max_threads_num){</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>17</pre></td>
+    <td align="right" class="lineno"><pre>18</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>92</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>127</pre></td>
     <td align="left" class="src coveredLine"><pre>        int is_array_full = 1;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>18</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1343476 times">&check;</span><span class="takenBranch" title="Branch 1 taken 92 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1343568</pre></td>
+    <td align="right" class="lineno"><pre>19</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 327662 times">&check;</span><span class="takenBranch" title="Branch 1 taken 127 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>327789</pre></td>
     <td align="left" class="src coveredLine"><pre>        for (size_t i = 0; i &lt; array_size; i+= step) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>19</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1396 times">&check;</span><span class="takenBranch" title="Branch 1 taken 1342080 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1343476</pre></td>
+    <td align="right" class="lineno"><pre>20</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1922 times">&check;</span><span class="takenBranch" title="Branch 1 taken 325740 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>327662</pre></td>
     <td align="left" class="src coveredLine"><pre>            if (!used_index[i]){</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>20</pre></td>
+    <td align="right" class="lineno"><pre>21</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
     <td align="left" class="src coveredLine"><pre>                data[threads_num] = (pthr_data * ) malloc(sizeof(pthr_data));</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>21</pre></td>
-    <td align="right" class="linebranch"><span class="notTakenBranch" title="Branch 0 not taken">&cross;</span><span class="takenBranch" title="Branch 1 taken 1396 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
+    <td align="right" class="lineno"><pre>22</pre></td>
+    <td align="right" class="linebranch"><span class="notTakenBranch" title="Branch 0 not taken">&cross;</span><span class="takenBranch" title="Branch 1 taken 1922 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
     <td align="left" class="src coveredLine"><pre>                if (data[threads_num] == NULL) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>22</pre></td>
+    <td align="right" class="lineno"><pre>23</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount uncoveredLine"><pre></pre></td>
     <td align="left" class="src uncoveredLine"><pre>                    break;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>23</pre></td>
+    <td align="right" class="lineno"><pre>24</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>                }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>24</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;from = i;</pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>25</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;a = array_to_fill;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;from = i;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>26</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;ref = ref_array;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;a = array_to_fill;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>27</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;to = array_size;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;ref = ref_array;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>28</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;used = used_index;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;to = array_size;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>29</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 1 taken 1396 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                if (pthread_create(&amp;thread[threads_num], NULL, thread_routine, data[threads_num]) == 0) {</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                data[threads_num]-&gt;used = used_index;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>30</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                    threads_num++;</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 1 taken 1922 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                if (pthread_create(&amp;thread[threads_num], NULL, thread_routine, data[threads_num]) == 0) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>31</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>                    is_array_full = 0;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                    threads_num++;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>32</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>                    is_array_full = 0;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>33</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>                } else {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>33</pre></td>
+    <td align="right" class="lineno"><pre>34</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount uncoveredLine"><pre></pre></td>
     <td align="left" class="src uncoveredLine"><pre>                    break;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>34</pre></td>
+    <td align="right" class="lineno"><pre>35</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>                }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>35</pre></td>
+    <td align="right" class="lineno"><pre>36</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>            }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>36</pre></td>
+    <td align="right" class="lineno"><pre>37</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>        }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>37</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 6 times">&check;</span><span class="takenBranch" title="Branch 1 taken 86 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>92</pre></td>
-    <td align="left" class="src coveredLine"><pre>        if (is_array_full == 1) break;</pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>38</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>86</pre></td>
-    <td align="left" class="src coveredLine"><pre>        step = step &gt;&gt; 1;</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 9 times">&check;</span><span class="takenBranch" title="Branch 1 taken 118 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>127</pre></td>
+    <td align="left" class="src coveredLine"><pre>        if (is_array_full == 1) break;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>39</pre></td>
     <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>118</pre></td>
+    <td align="left" class="src coveredLine"><pre>        step = step &gt;&gt; 1;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>40</pre></td>
+    <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>40</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1396 times">&check;</span><span class="takenBranch" title="Branch 1 taken 6 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1402</pre></td>
-    <td align="left" class="src coveredLine"><pre>    for (int i = 0; i &lt; threads_num; i++){</pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>41</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>        pthread_join(thread[i], NULL);</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1922 times">&check;</span><span class="takenBranch" title="Branch 1 taken 9 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1931</pre></td>
+    <td align="left" class="src coveredLine"><pre>    for (int i = 0; i &lt; threads_num; i++){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>42</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1396</pre></td>
-    <td align="left" class="src coveredLine"><pre>        free(data[i]);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>        pthread_join(thread[i], NULL);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>43</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1922</pre></td>
+    <td align="left" class="src coveredLine"><pre>        free(data[i]);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>44</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>44</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    free(data);</pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>45</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    return threads_num;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    free(data);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>46</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    return threads_num;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>47</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>48</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1400</pre></td>
-    <td align="left" class="src coveredLine"><pre>void * thread_routine(void *  arg){</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>49</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1400</pre></td>
-    <td align="left" class="src coveredLine"><pre>    pthr_data * data = (pthr_data*) arg;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1926</pre></td>
+    <td align="left" class="src coveredLine"><pre>void * thread_routine(void *  arg){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>50</pre></td>
-    <td align="right" class="linebranch"><span class="notTakenBranch" title="Branch 0 not taken">&cross;</span><span class="takenBranch" title="Branch 1 taken 1400 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1400</pre></td>
-    <td align="left" class="src coveredLine"><pre>    if (data == NULL){</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1926</pre></td>
+    <td align="left" class="src coveredLine"><pre>    pthr_data * data = (pthr_data*) arg;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
+    <td align="right" class="linebranch"><span class="notTakenBranch" title="Branch 0 not taken">&cross;</span><span class="takenBranch" title="Branch 1 taken 1926 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1926</pre></td>
+    <td align="left" class="src coveredLine"><pre>    if (data == NULL){</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>52</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount uncoveredLine"><pre></pre></td>
     <td align="left" class="src uncoveredLine"><pre>        return NULL;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>52</pre></td>
+    <td align="right" class="lineno"><pre>53</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>53</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 157289888 times">&check;</span><span class="takenBranch" title="Branch 1 taken 8 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>157289896</pre></td>
+    <td align="right" class="lineno"><pre>54</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 235933576 times">&check;</span><span class="takenBranch" title="Branch 1 taken 11 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>235933587</pre></td>
     <td align="left" class="src coveredLine"><pre>    for (size_t i = data-&gt;from; i &lt; data-&gt;to; i++) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>54</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1392 times">&check;</span><span class="takenBranch" title="Branch 1 taken 157288496 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>157289888</pre></td>
+    <td align="right" class="lineno"><pre>55</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1915 times">&check;</span><span class="takenBranch" title="Branch 1 taken 235931661 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>235933576</pre></td>
     <td align="left" class="src coveredLine"><pre>        if (data-&gt;used[i]) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>55</pre></td>
+    <td align="right" class="lineno"><pre>56</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1392</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1915</pre></td>
     <td align="left" class="src coveredLine"><pre>            break;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>56</pre></td>
+    <td align="right" class="lineno"><pre>57</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>        }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>57</pre></td>
+    <td align="right" class="lineno"><pre>58</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>157288496</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>235931661</pre></td>
     <td align="left" class="src coveredLine"><pre>        data-&gt;used[i] = 1;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>58</pre></td>
+    <td align="right" class="lineno"><pre>59</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>157288496</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>235931661</pre></td>
     <td align="left" class="src coveredLine"><pre>        *(data-&gt;a+i) = *(data-&gt;ref+i);</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>59</pre></td>
+    <td align="right" class="lineno"><pre>60</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>60</pre></td>
+    <td align="right" class="lineno"><pre>61</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1400</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1926</pre></td>
     <td align="left" class="src coveredLine"><pre>    return NULL;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>61</pre></td>
+    <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>62</pre></td>
+    <td align="right" class="lineno"><pre>63</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
     <td align="left" class="src coveredLine"><pre>int  fill_array(int * ref_array, int * array_to_fill, size_t array_size) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>63</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 6 times">&check;</span><span class="takenBranch" title="Branch 1 taken 2 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span><span class="takenBranch" title="Branch 3 taken 6 times">&check;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
-    <td align="left" class="src coveredLine"><pre>    if (ref_array == NULL || array_to_fill == NULL) return FAILURE;</pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>64</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    char * used_index = (char *) calloc(sizeof(char), array_size);</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 9 times">&check;</span><span class="takenBranch" title="Branch 1 taken 2 times">&check;</span><span class="notTakenBranch" title="Branch 2 not taken">&cross;</span><span class="takenBranch" title="Branch 3 taken 9 times">&check;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>11</pre></td>
+    <td align="left" class="src coveredLine"><pre>    if (ref_array == NULL || array_to_fill == NULL) return FAILURE;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>65</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    threads_creation(ref_array, array_to_fill, used_index, array_size);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    char * used_index = (char *) calloc(sizeof(char), array_size);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>66</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    free(used_index);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    threads_creation(ref_array, array_to_fill, used_index, array_size);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>67</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>    return SUCCESS;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    free(used_index);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>68</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>    return SUCCESS;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>69</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>

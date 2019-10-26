@@ -16,11 +16,11 @@ TEST(test_par, test_correct_input){
         free(array_to_fill);
         exit(ERROR_MALLOC);
     }
-    for (int i = 0; i < memory_size/sizeof(int); i++){
+    for (size_t i = 0; i < memory_size/sizeof(int); i++){
         ref_array[i] = i;
     }
     fill_array(ref_array, array_to_fill, memory_size/sizeof(int));
-    for (int i = 0; i < memory_size/sizeof(int); i++){
+    for (size_t i = 0; i < memory_size/sizeof(int); i++){
         ASSERT_EQ(array_to_fill[i], ref_array[i]);
     }
     free(array_to_fill);
