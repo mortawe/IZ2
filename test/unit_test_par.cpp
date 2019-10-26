@@ -76,10 +76,16 @@ TEST(test_par, test_thread_routine){
     free(data1);
     free(data2);
 }
-TEST(test_par, test_wrong_input){
+TEST(test_par, test_wrong_input_fill_array){
     int *a = NULL;
     int *b = NULL;
     ASSERT_EQ(fill_array(a,b, 10), FAILURE);
+}
+TEST(test_par, test_wrong_input_threads_creation){
+    int *a = NULL;
+    int *b = NULL;
+    char *used = NULL;
+    ASSERT_EQ(threads_creation(a,b, used, 0), FAILURE);
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

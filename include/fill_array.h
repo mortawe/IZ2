@@ -17,7 +17,7 @@ typedef struct{
 
 } pthr_data;
 void * thread_routine(void * arg);
-int threads_creation(int * ref_array, int * array_to_fill, char * used_index, int array_size);
+int threads_creation(int * ref_array, int * array_to_fill, char * used_index, size_t array_size);
 
 int fill_array(int * ref_array, int * array_to_fill, size_t array_size);
 
