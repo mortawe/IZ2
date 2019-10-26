@@ -1,5 +1,6 @@
 language: c
-
+env:
+  - CODECOV_TOKEN="09281687-605f-4f52-a652-7d4c4f3f05ca"
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libgtest-dev valgrind cmake
