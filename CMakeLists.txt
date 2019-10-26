@@ -17,7 +17,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ftest-coverage")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 
-
 enable_testing()
 find_package(GTest REQUIRED)
 
@@ -26,6 +25,8 @@ include_directories(include)
 
 add_library(IZ2_lib_STATIC_SEQ STATIC ${LIB_SOURCE_FILES_STATIC_SEQ})
 add_library(IZ2_lib_SHARED_PAR SHARED ${LIB_SOURCE_FILES_SHARED_PAR})
+target_link_libraries(IZ2_lib_STATIC_SEQ  gcov)
+target_link_libraries(IZ2_lib_SHARED_PAR gcov)
 
 target_link_libraries(IZ2_lib_STATIC_SEQ  -pthread)
 target_link_libraries(IZ2_lib_SHARED_PAR  -pthread)
