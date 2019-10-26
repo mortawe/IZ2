@@ -114,5 +114,11 @@ libIZ2_lib_SHARED.so
 libIZ2_lib_SHARED_PAR.so
 libIZ2_lib_STATIC.a
 libIZ2_lib_STATIC_SEQ.a
-unit_test
+unit_test_par
+unit_test_seq
+ex1
+ex2
+ex
+main
+IZ2.cbp
 IZ2
