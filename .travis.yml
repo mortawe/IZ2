@@ -1,0 +1,29 @@
+language: c
+env:
+  - CODECOV_TOKEN="09281687-605f-4f52-a652-7d4c4f3f05ca"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libgtest-dev valgrind cmake
+  - sudo wget https://github.com/google/googletest/archive/release-1.7.0.tar.gz
+  - tar xf release-1.7.0.tar.gz
+  - cd googletest-release-1.7.0
+  - cmake -DBUILD_SHARED_LIBS=ON .
+  - make
+  - sudo cp -a include/gtest /usr/include
+  - sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+  - sudo apt-get install cppcheck
+  - which valgrind
+  - cd "${TRAVIS_BUILD_DIR}"
+  - sudo apt install gcovr
+script:
+  - cmake CMakeLists.txt
+  - make
+  - cppcheck --force ../
+  - make test
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex1
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex2
+  - valgrind --tool=memcheck --leak-check=full --leak-resolution=med  --track-origins=yes ./ex
+  - gcovr -r ../ --html --html-details -o gcov/code_coverage_report.html
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
